@@ -3,38 +3,98 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Rishab Pangal — software engineer, M.S. CS at UMass Amherst." />
-  <meta name="theme-color" content="#08080a" />
-  <title>Rishab Pangal</title>
+  <meta name="description" content="Rishab Pangal — software engineer. M.S. CS at UMass Amherst. Python, Go, TypeScript, AWS." />
+  <meta name="theme-color" content="#070709" />
+  <meta name="color-scheme" content="dark" />
+  <title>Rishab Pangal · Software Engineer</title>
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://rishpan.github.io/" />
+  <meta property="og:title" content="Rishab Pangal · Software Engineer" />
+  <meta property="og:description" content="Software engineer · M.S. CS at UMass Amherst · Amazon eero intern." />
+  <meta property="og:site_name" content="Rishab Pangal" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Rishab Pangal · Software Engineer" />
+  <meta name="twitter:description" content="Software engineer · M.S. CS at UMass Amherst · Amazon eero intern." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="canonical" href="https://rishpan.github.io/" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Rishab Pangal",
+    "url": "https://rishpan.github.io/",
+    "jobTitle": "Software Engineer",
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "Purdue University" }
+    ],
+    "memberOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "University of Massachusetts Amherst"
+    },
+    "sameAs": [
+      "https://github.com/Rishpan",
+      "https://www.linkedin.com/in/rishabpangal"
+    ],
+    "email": "rishab.pangal@gmail.com"
+  }
+  </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #08080a;
-      --panel: #0f0f12;
-      --panel2: #16161a;
-      --line: rgba(255,255,255,0.07);
-      --text: #ededf0;
-      --dim: #9a9aa6;
-      --muted: #72727e;
+      --bg: #070709;
+      --panel: #0e0e11;
+      --panel2: #151519;
+      --line: rgba(255, 255, 255, 0.07);
+      --text: #f2f2f4;
+      --dim: #a1a1ad;
+      --muted: #6e6e7a;
       --violet: #8b5cf6;
       --cyan: #22d3ee;
-      --grad: linear-gradient(135deg, var(--violet), var(--cyan));
+      --grad: linear-gradient(135deg, var(--violet) 0%, #7c6bf0 45%, var(--cyan) 100%);
       --sans: 'Outfit', system-ui, sans-serif;
       --mono: 'JetBrains Mono', monospace;
-      --sidebar: 200px;
-      --radius: 12px;
-      --glass-blur: 18px;
-      --glass-saturate: 1.45;
-      --glass-bg: rgba(14, 14, 17, 0.55);
-      --glass-border: rgba(255, 255, 255, 0.1);
-      --glass-shine: inset 0 1px 0 rgba(255, 255, 255, 0.08);
-      --glass-shadow: 0 10px 40px rgba(0, 0, 0, 0.22);
+      --sidebar: 216px;
+      --radius: 14px;
+      --radius-sm: 10px;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+      --glass-blur: 20px;
+      --glass-saturate: 1.5;
+      --glass-bg: rgba(12, 12, 15, 0.62);
+      --glass-border: rgba(255, 255, 255, 0.09);
+      --glass-shine: inset 0 1px 0 rgba(255, 255, 255, 0.09);
+      --glass-shadow: 0 12px 48px rgba(0, 0, 0, 0.28);
+      --surface: rgba(14, 14, 17, 0.76);
     }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      color-scheme: dark;
+    }
+
+    a, button { touch-action: manipulation; }
+
+    .skip-link {
+      position: absolute;
+      top: -3rem;
+      left: 1rem;
+      z-index: 1000;
+      padding: 0.5rem 0.85rem;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--text);
+      background: var(--panel);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+    }
+
+    .skip-link:focus-visible {
+      top: 1rem;
+    }
 
     ::selection {
       background: rgba(139, 92, 246, 0.35);
@@ -55,11 +115,26 @@
       line-height: 1.6;
       color: var(--text);
       background:
-        radial-gradient(ellipse 55% 45% at 88% 8%, rgba(34, 211, 238, 0.07), transparent),
-        radial-gradient(ellipse 50% 42% at 10% 92%, rgba(139, 92, 246, 0.08), transparent),
-        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(139, 92, 246, 0.08), transparent),
+        radial-gradient(ellipse 60% 48% at 92% 4%, rgba(34, 211, 238, 0.09), transparent),
+        radial-gradient(ellipse 52% 44% at 6% 96%, rgba(139, 92, 246, 0.1), transparent),
+        radial-gradient(ellipse 90% 55% at 50% -25%, rgba(139, 92, 246, 0.07), transparent),
         var(--bg);
       min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: radial-gradient(ellipse 85% 75% at 50% 35%, black 20%, transparent 72%);
     }
 
     /* ─── SIDEBAR ─── */
@@ -107,20 +182,34 @@
       flex: 1;
     }
 
+    .sidebar-nav li:first-child a {
+      padding-left: calc(0.65rem + 1.1rem + 0.55rem);
+    }
+
     .sidebar-nav a {
-      display: block;
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
       font-size: 0.8rem;
       font-weight: 400;
       color: var(--dim);
       text-decoration: none;
-      padding: 0.45rem 0.65rem;
-      border-radius: 8px;
-      transition: color 0.15s, background 0.15s;
+      padding: 0.48rem 0.65rem;
+      border-radius: var(--radius-sm);
+      transition: color 0.2s var(--ease), background 0.2s var(--ease);
     }
 
     .sidebar-nav a:hover {
       color: var(--text);
-      background: rgba(255,255,255,0.05);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-num {
+      font-family: var(--mono);
+      font-size: 0.56rem;
+      color: var(--muted);
+      width: 1.1rem;
+      flex-shrink: 0;
     }
 
     .sidebar-links {
@@ -186,45 +275,62 @@
 
     /* ─── MAIN ─── */
     main {
+      position: relative;
+      z-index: 1;
       margin-left: var(--sidebar);
       margin-right: auto;
       width: calc(100% - var(--sidebar));
       max-width: 1080px;
-      padding: 3rem 2.5rem 4rem;
+      padding: 3.25rem 2.75rem 4.5rem;
     }
 
-    section { scroll-margin-top: 2rem; margin-bottom: 3.5rem; }
+    section { scroll-margin-top: 2rem; margin-bottom: 4rem; }
+
+    main section:not(#hero) {
+      content-visibility: auto;
+      contain-intrinsic-size: auto 460px;
+    }
     section:last-of-type { margin-bottom: 0; }
 
     .section-title {
-      font-size: 1.15rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1.05rem;
       font-weight: 600;
-      letter-spacing: -0.02em;
-      margin-bottom: 1.25rem;
+      letter-spacing: -0.025em;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, var(--line), transparent);
     }
 
     .section-title .section-num {
       font-family: var(--mono);
-      font-size: 0.62rem;
+      font-size: 0.6rem;
       font-weight: 500;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       color: var(--muted);
-      margin-right: 0.4rem;
+      margin-right: 0.15rem;
     }
 
     /* ─── HERO ─── */
     #hero {
-      margin-bottom: 1rem;
-      padding-bottom: 2.5rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 3rem;
       border-bottom: 1px solid var(--line);
     }
 
     .hero-main h1 {
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-size: clamp(2.65rem, 5.5vw, 3.75rem);
       font-weight: 600;
-      letter-spacing: -0.03em;
-      line-height: 1.12;
-      margin-bottom: 0.75rem;
+      letter-spacing: -0.035em;
+      line-height: 1.08;
+      margin-bottom: 0.85rem;
       padding-bottom: 0.06em;
       background: var(--grad);
       -webkit-background-clip: text;
@@ -234,19 +340,19 @@
     }
 
     .hero-main .hero-desc {
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       color: var(--dim);
-      max-width: 34rem;
-      line-height: 1.75;
-      margin-bottom: 1.25rem;
+      max-width: 36rem;
+      line-height: 1.8;
+      margin-bottom: 1.35rem;
     }
 
     .hero-status {
       font-family: var(--mono);
       font-size: 0.62rem;
       color: var(--muted);
-      letter-spacing: 0.01em;
-      margin-bottom: 1.75rem;
+      letter-spacing: 0.02em;
+      margin-bottom: 2rem;
     }
 
     .hero-status .hero-co {
@@ -257,7 +363,7 @@
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: 0.6rem;
     }
 
     .hero-actions a {
@@ -266,10 +372,10 @@
       font-weight: 500;
       color: var(--dim);
       text-decoration: none;
-      padding: 0.55rem 1rem;
-      border: 1px solid var(--line);
+      padding: 0.6rem 1.15rem;
+      border: 1px solid var(--glass-border);
       border-radius: 999px;
-      transition: color 0.15s, border-color 0.15s, background 0.15s;
+      transition: color 0.2s var(--ease), border-color 0.2s var(--ease), background 0.2s var(--ease);
     }
 
     .hero-actions a:hover {
@@ -278,14 +384,47 @@
       background: rgba(139, 92, 246, 0.06);
     }
 
+    @media (hover: hover) and (pointer: fine) {
+      .hero-actions a {
+        transition: color 0.2s var(--ease), border-color 0.2s var(--ease), background 0.2s var(--ease), transform 0.2s var(--ease);
+      }
+
+      .hero-actions a:hover {
+        transform: translateY(-1px);
+      }
+
+      .hero-actions a.primary:hover {
+        transform: translateY(-2px);
+      }
+    }
+
     .hero-actions a.primary {
-      color: var(--text);
-      background: rgba(139, 92, 246, 0.14);
-      border-color: rgba(139, 92, 246, 0.4);
+      color: var(--bg);
+      font-weight: 600;
+      background: var(--grad);
+      border-color: transparent;
+      box-shadow: 0 4px 24px rgba(139, 92, 246, 0.28);
     }
 
     .hero-actions a.primary:hover {
-      background: rgba(139, 92, 246, 0.22);
+      color: var(--bg);
+      background: var(--grad);
+      box-shadow: 0 8px 32px rgba(139, 92, 246, 0.38);
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .hero-main > * {
+        animation: rise-in 0.75s var(--ease) both;
+      }
+      .hero-main h1 { animation-delay: 0.04s; }
+      .hero-main .hero-desc { animation-delay: 0.1s; }
+      .hero-main .hero-status { animation-delay: 0.16s; }
+      .hero-main .hero-actions { animation-delay: 0.22s; }
+    }
+
+    @keyframes rise-in {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .panel {
@@ -303,9 +442,9 @@
     .exp-flow::before {
       content: '';
       position: absolute;
-      left: calc(0.25rem + 20px);
-      top: 20px;
-      bottom: 20px;
+      left: calc(0.25rem + 21px);
+      top: 22px;
+      bottom: 22px;
       width: 1px;
       background: linear-gradient(to bottom, var(--violet), var(--cyan));
       opacity: 0.35;
@@ -314,12 +453,12 @@
     .exp-node {
       position: relative;
       display: grid;
-      grid-template-columns: 40px 1fr;
+      grid-template-columns: 44px 1fr;
       gap: 1rem 1.15rem;
       align-items: start;
-      padding-bottom: 1.5rem;
-      margin-bottom: 1.5rem;
-      border-bottom: 1px solid var(--line);
+      padding-bottom: 1.65rem;
+      margin-bottom: 1.65rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
     }
 
     .exp-node:last-child {
@@ -329,20 +468,33 @@
     }
 
     .exp-logo-wrap {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background: #fff;
-      border: 1px solid rgba(255,255,255,0.08);
+      width: 44px;
+      height: 44px;
+      border-radius: 11px;
+      background: rgba(255, 255, 255, 0.97);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-shine), 0 4px 14px rgba(0, 0, 0, 0.14);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 7px;
+      padding: 8px;
       position: relative;
       z-index: 1;
+      overflow: hidden;
+    }
+
+    .exp-logo-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.55) 0%, transparent 48%);
     }
 
     .exp-logo {
+      position: relative;
+      z-index: 1;
       width: 100%;
       height: 100%;
       object-fit: contain;
@@ -350,14 +502,29 @@
     }
 
     .exp-logo-wrap.purdue {
-      background: #000;
-      border-color: rgba(255,255,255,0.1);
+      background: #0a0a0a;
+      border-color: rgba(255, 255, 255, 0.12);
       padding: 0;
-      overflow: hidden;
+    }
+
+    .exp-logo-wrap.purdue::before {
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.06) 0%, transparent 48%);
     }
 
     .exp-logo-wrap.purdue .exp-logo {
       transform: scale(1.05);
+    }
+
+    .exp-logo-wrap.intel {
+      background: #f4f7fb;
+    }
+
+    .exp-logo-wrap.intel .exp-logo {
+      filter: brightness(0);
+    }
+
+    .exp-logo-wrap.hpe {
+      padding: 6px;
     }
 
     .exp-node-head {
@@ -393,17 +560,19 @@
 
     .tag {
       font-family: var(--mono);
-      font-size: 0.62rem;
+      font-size: 0.6rem;
       color: var(--dim);
-      background: var(--panel2);
-      border: 1px solid rgba(255,255,255,0.09);
-      padding: 0.18rem 0.5rem;
-      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 0.2rem 0.55rem;
+      border-radius: 999px;
+      transition: border-color 0.2s var(--ease), color 0.2s var(--ease);
     }
 
     .tag.live {
       color: var(--cyan);
-      border-color: rgba(34, 211, 238, 0.25);
+      background: rgba(34, 211, 238, 0.06);
+      border-color: rgba(34, 211, 238, 0.22);
     }
 
     /* ─── PROJECTS GRID ─── */
@@ -466,6 +635,11 @@
       color: var(--text);
     }
 
+    .proj-tab-count {
+      color: var(--muted);
+      font-weight: 400;
+    }
+
     .proj-panel[hidden] {
       display: none;
     }
@@ -473,21 +647,21 @@
     .proj-list {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 0.75rem;
+      gap: 0.85rem;
     }
 
     .proj-row {
       display: flex;
       flex-direction: column;
-      gap: 0.6rem;
-      padding: 1.2rem 1.3rem;
-      background: rgba(15, 15, 18, 0.72);
+      gap: 0.65rem;
+      padding: 1.25rem 1.35rem;
+      background: var(--surface);
       border: 1px solid var(--glass-border);
       border-radius: var(--radius);
-      box-shadow: var(--glass-shine), 0 4px 24px rgba(0, 0, 0, 0.12);
+      box-shadow: var(--glass-shine), 0 4px 24px rgba(0, 0, 0, 0.14);
       text-decoration: none;
       color: inherit;
-      transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+      transition: border-color 0.25s var(--ease), background 0.25s var(--ease);
       position: relative;
       height: 100%;
       overflow: hidden;
@@ -503,12 +677,27 @@
     }
 
     .proj-row:hover {
-      border-color: rgba(34, 211, 238, 0.24);
-      background: rgba(18, 18, 22, 0.82);
+      border-color: rgba(34, 211, 238, 0.28);
+      background: rgba(18, 18, 23, 0.88);
       box-shadow:
         var(--glass-shine),
-        inset 0 0 0 1px rgba(34, 211, 238, 0.06),
-        0 8px 28px rgba(0, 0, 0, 0.16);
+        inset 0 0 0 1px rgba(34, 211, 238, 0.07),
+        0 12px 36px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .proj-row {
+        transition: border-color 0.25s var(--ease), background 0.25s var(--ease), transform 0.25s var(--ease);
+      }
+
+      .proj-row:hover {
+        transform: translateY(-2px);
+      }
+    }
+
+    .proj-row:hover .proj-arrow {
+      color: var(--cyan);
+      transform: translate(2px, -2px);
     }
 
     .proj-top {
@@ -556,69 +745,32 @@
       font-family: var(--mono);
       font-size: 0.85rem;
       color: var(--muted);
-      transition: color 0.15s;
-    }
-
-    .proj-row:hover .proj-arrow { color: var(--cyan); }
-
-    .proj-row.is-hidden { display: none; }
-
-    .proj-pager {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.85rem;
-      margin-top: 1.1rem;
-    }
-
-    .proj-pager-btn {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      color: var(--dim);
-      background: transparent;
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      padding: 0.35rem 0.7rem;
-      cursor: pointer;
-      transition: color 0.15s, border-color 0.15s;
-    }
-
-    .proj-pager-btn:hover:not(:disabled) {
-      color: var(--cyan);
-      border-color: rgba(34, 211, 238, 0.3);
-    }
-
-    .proj-pager-btn:disabled {
-      opacity: 0.35;
-      cursor: default;
-    }
-
-    .proj-pager-info {
-      font-family: var(--mono);
-      font-size: 0.62rem;
-      color: var(--muted);
-      min-width: 2.5rem;
-      text-align: center;
+      transition: color 0.25s var(--ease), transform 0.25s var(--ease);
     }
 
     /* ─── SKILLS ─── */
     .skills-wrap {
       display: flex;
       flex-direction: column;
+      padding: 0 1.35rem;
+      background: var(--surface);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius);
+      box-shadow: var(--glass-shine);
     }
 
     .skill-group {
-      padding: 1.1rem 0;
-      border-bottom: 1px solid var(--line);
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     .skill-group:first-child {
-      padding-top: 0;
+      padding-top: 1.15rem;
     }
 
     .skill-group:last-child {
       border-bottom: none;
-      padding-bottom: 0;
+      padding-bottom: 1.15rem;
     }
 
     .skill-group h3 {
@@ -645,10 +797,21 @@
     .edu-chip {
       flex: 1;
       min-width: 200px;
-      padding: 1.1rem 1.2rem;
-      background: var(--panel);
-      border: 1px solid var(--line);
+      padding: 1.2rem 1.3rem;
+      background: var(--surface);
+      border: 1px solid var(--glass-border);
       border-radius: var(--radius);
+      box-shadow: var(--glass-shine);
+    }
+
+    .edu-chip .tags {
+      margin-top: 0.4rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .edu-chip .tag {
+      font-size: 0.55rem;
+      padding: 0.15rem 0.45rem;
     }
 
     .edu-chip h3 {
@@ -674,120 +837,51 @@
     .contact-list {
       display: flex;
       flex-direction: column;
-      border-top: 1px solid var(--line);
+      padding: 0 1.35rem;
+      background: var(--surface);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius);
+      box-shadow: var(--glass-shine);
+      overflow: hidden;
     }
-
-    .contact-list a {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      font-size: 0.84rem;
-      color: var(--dim);
-      text-decoration: none;
-      transition: color 0.15s;
-    }
-
-    .contact-list a:hover { color: var(--cyan); }
 
     .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      border-bottom: 1px solid var(--line);
-      padding: 0.65rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 0.75rem 0;
     }
 
     .contact-item:last-child { border-bottom: none; }
 
-    .contact-item > a {
-      flex: 1;
-      border-bottom: none;
-      padding: 0;
+    .contact-item a {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      min-width: 0;
+      overflow: hidden;
+      font-size: 0.84rem;
+      color: var(--dim);
+      text-decoration: none;
+      transition: color 0.2s var(--ease);
     }
 
-    .copy-btn {
+    .contact-item a:hover { color: var(--cyan); }
+
+    .contact-label {
       font-family: var(--mono);
-      font-size: 0.55rem;
+      font-size: 0.62rem;
       font-weight: 500;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       color: var(--muted);
-      background: transparent;
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      padding: 0.3rem 0.5rem;
-      cursor: pointer;
+      width: 3.5rem;
       flex-shrink: 0;
-      opacity: 0;
-      transition: opacity 0.15s, color 0.15s, border-color 0.15s;
     }
 
-    .contact-item:hover .copy-btn,
-    .copy-btn:focus {
-      opacity: 1;
-    }
-
-    .copy-btn:hover {
-      color: var(--cyan);
-      border-color: rgba(34, 211, 238, 0.3);
-    }
-
-    .toast {
-      position: fixed;
-      bottom: 1.5rem;
-      right: 1.5rem;
-      z-index: 200;
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      color: var(--text);
-      background: var(--glass-bg);
-      -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
-      backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
-      border: 1px solid var(--glass-border);
-      box-shadow: var(--glass-shine), var(--glass-shadow);
-      border-radius: 8px;
-      padding: 0.6rem 0.9rem;
-      opacity: 0;
-      transform: translateY(6px);
-      pointer-events: none;
-      transition: opacity 0.2s, transform 0.2s;
-    }
-
-    .toast.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .toast.toast-niners {
-      border-color: rgba(179, 153, 93, 0.45);
-      background: linear-gradient(135deg, rgba(170, 0, 0, 0.18), var(--panel));
-    }
-
-    .toast.toast-warriors {
-      border-color: rgba(255, 199, 44, 0.4);
-      background: linear-gradient(135deg, rgba(29, 66, 138, 0.22), var(--panel));
-    }
-
-    .toast.show.toast-celebrate {
-      animation: toast-pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-
-    @keyframes toast-pop {
-      0% { opacity: 0; transform: scale(0.8) translateY(12px); }
-      100% { opacity: 1; transform: scale(1) translateY(0); }
-    }
-
-    .toast strong {
-      display: block;
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      margin-bottom: 0.15rem;
-    }
-
-    .toast-sub {
-      font-size: 0.58rem;
-      color: var(--dim);
+    .contact-val {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     .ee-flash {
@@ -917,18 +1011,9 @@
       100% { opacity: 0; transform: translateY(-10px) scale(0.96); letter-spacing: 0.08em; }
     }
 
-    .contact-list span {
-      font-family: var(--mono);
-      font-size: 0.62rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--muted);
-      width: 3.5rem;
-      flex-shrink: 0;
-    }
-
     footer {
+      position: relative;
+      z-index: 1;
       margin-left: var(--sidebar);
       margin-right: auto;
       width: calc(100% - var(--sidebar));
@@ -1004,7 +1089,22 @@
     .mobile-nav a:hover { color: var(--cyan); }
 
     @media (max-width: 768px) {
+      html { scroll-behavior: auto; }
+
       :root { --glass-blur: 14px; }
+
+      .mobile-header {
+        background: var(--panel);
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+        box-shadow: 0 1px 0 var(--glass-border);
+      }
+
+      .proj-tabs {
+        background: var(--surface);
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+      }
 
       .sidebar { display: none; }
       .mobile-header { display: block; }
@@ -1013,7 +1113,6 @@
       footer { padding: 1.75rem 1.25rem; }
       section { scroll-margin-top: 6.5rem; }
       .proj-list { grid-template-columns: 1fr; }
-      .proj-pager-btn { padding: 0.45rem 0.85rem; }
       .proj-tabs {
         display: flex;
         width: 100%;
@@ -1027,24 +1126,42 @@
         padding: 0.5rem 0.65rem;
       }
       main, footer { width: 100%; }
-      .copy-btn { opacity: 1; }
+      .contact-list { padding: 0 1rem; }
+      .contact-label { width: 3rem; }
+      .contact-item a { gap: 0.65rem; }
+      .contact-val {
+        white-space: normal;
+        word-break: break-word;
+        overflow: visible;
+        text-overflow: unset;
+        line-height: 1.45;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
 
+      .hero-main > *,
+      main section.reveal {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+
+      .proj-row:hover,
+      .hero-actions a:hover {
+        transform: none !important;
+      }
+
       .ee-particle,
       .ee-callout-text,
-      .ee-callout.niners .ee-bang,
-      .toast.show.toast-celebrate {
+      .ee-callout.niners .ee-bang {
         animation: none !important;
       }
 
       .ee-callout { display: none !important; }
 
       .ee-flash,
-      .toast,
-      .copy-btn,
       .sidebar-nav a,
       .hero-actions a,
       .proj-row,
@@ -1055,11 +1172,23 @@
       }
     }
 
+    @media (prefers-reduced-motion: no-preference) {
+      main section.reveal {
+        opacity: 0;
+        transform: translateY(18px);
+        transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+      }
+
+      main section.reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
       .sidebar,
       .mobile-header,
-      .proj-tabs,
-      .toast {
+      .proj-tabs {
         background: var(--panel);
         box-shadow: none;
       }
@@ -1067,6 +1196,8 @@
   </style>
 </head>
 <body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="mobile-header">
     <a class="mobile-top" href="#hero">Rishab Pangal</a>
@@ -1080,20 +1211,20 @@
     </nav>
   </header>
 
-  <aside class="sidebar">
+  <aside class="sidebar" aria-label="Profile">
     <a class="sidebar-name" href="#hero">Rishab Pangal</a>
     <div class="sidebar-sub">M.S. CS · UMass '27</div>
-    <ul class="sidebar-nav">
+    <ul class="sidebar-nav" aria-label="Sections">
       <li><a href="#hero">Home</a></li>
-      <li><a href="#experience">Work</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#experience"><span class="nav-num">01</span>Work</a></li>
+      <li><a href="#projects"><span class="nav-num">02</span>Projects</a></li>
+      <li><a href="#skills"><span class="nav-num">03</span>Skills</a></li>
+      <li><a href="#education"><span class="nav-num">04</span>Education</a></li>
+      <li><a href="#contact"><span class="nav-num">05</span>Contact</a></li>
     </ul>
     <div class="sidebar-links">
-      <a href="https://github.com/Rishpan" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://linkedin.com/in/rishabpangal" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/Rishpan" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/rishabpangal" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </div>
     <div class="sidebar-foot">
       <span class="site-loc">Fremont, CA
@@ -1105,7 +1236,7 @@
     </div>
   </aside>
 
-  <main>
+  <main id="main" tabindex="-1">
 
     <section id="hero">
       <div class="hero-main">
@@ -1114,6 +1245,7 @@
         <p class="hero-status"><span class="hero-co">Amazon eero</span> · Los Gatos · Summer '26</p>
         <div class="hero-actions">
           <a class="primary" href="#contact">Get in touch</a>
+          <a href="https://github.com/Rishpan" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
         </div>
       </div>
     </section>
@@ -1122,8 +1254,8 @@
       <h2 class="section-title"><span class="section-num">01</span>Work</h2>
       <div class="exp-flow">
         <div class="exp-node">
-          <div class="exp-logo-wrap" aria-hidden="true">
-            <img class="exp-logo" src="assets/logos/amazon.png" alt="" width="40" height="40" />
+          <div class="exp-logo-wrap amazon" aria-hidden="true">
+            <img class="exp-logo" src="assets/logos/amazon.png" alt="" width="44" height="44" loading="lazy" decoding="async" />
           </div>
           <div class="exp-body">
             <div class="exp-node-head">
@@ -1138,7 +1270,7 @@
         </div>
         <div class="exp-node">
           <div class="exp-logo-wrap purdue" aria-hidden="true">
-            <img class="exp-logo" src="assets/logos/purdue.png" alt="" width="40" height="40" />
+            <img class="exp-logo" src="assets/logos/purdue.png" alt="" width="44" height="44" loading="lazy" decoding="async" />
           </div>
           <div class="exp-body">
             <div class="exp-node-head">
@@ -1151,8 +1283,8 @@
           </div>
         </div>
         <div class="exp-node">
-          <div class="exp-logo-wrap" aria-hidden="true">
-            <img class="exp-logo" src="assets/logos/intel.svg" alt="" width="40" height="40" />
+          <div class="exp-logo-wrap intel" aria-hidden="true">
+            <img class="exp-logo" src="assets/logos/intel.svg" alt="" width="44" height="44" loading="lazy" decoding="async" />
           </div>
           <div class="exp-body">
             <div class="exp-node-head">
@@ -1165,8 +1297,8 @@
           </div>
         </div>
         <div class="exp-node">
-          <div class="exp-logo-wrap" aria-hidden="true">
-            <img class="exp-logo" src="assets/logos/HPE.png" alt="" width="40" height="40" />
+          <div class="exp-logo-wrap hpe" aria-hidden="true">
+            <img class="exp-logo" src="assets/logos/HPE.png" alt="" width="44" height="44" loading="lazy" decoding="async" />
           </div>
           <div class="exp-body">
             <div class="exp-node-head">
@@ -1186,18 +1318,18 @@
 
       <div class="proj-tabs" role="tablist" aria-label="Project status">
         <span class="proj-tabs-thumb" aria-hidden="true"></span>
-        <button type="button" class="proj-tab" role="tab" id="proj-tab-wip" aria-selected="false" aria-controls="proj-panel-wip" data-proj-tab="wip">In progress</button>
-        <button type="button" class="proj-tab" role="tab" id="proj-tab-done" aria-selected="true" aria-controls="proj-panel-done" data-proj-tab="done">Finished</button>
+        <button type="button" class="proj-tab" role="tab" id="proj-tab-wip" aria-selected="false" aria-controls="proj-panel-wip" data-proj-tab="wip" tabindex="-1">In progress <span class="proj-tab-count">(2)</span></button>
+        <button type="button" class="proj-tab" role="tab" id="proj-tab-done" aria-selected="true" aria-controls="proj-panel-done" data-proj-tab="done" tabindex="0">Finished <span class="proj-tab-count">(7)</span></button>
       </div>
 
       <div class="proj-panel" id="proj-panel-wip" role="tabpanel" aria-labelledby="proj-tab-wip" hidden>
         <div class="proj-list">
-          <a class="proj-row" href="https://github.com/Rishpan/github-pr-agent" target="_blank" rel="noopener">
+          <a class="proj-row" href="https://github.com/Rishpan/github-pr-agent" target="_blank" rel="noopener noreferrer">
             <div class="proj-top"><h3>GitHub PR Agent</h3><span class="proj-arrow">↗</span></div>
             <p>Reads a GitHub issue, finds relevant code with RAG, and opens a draft pull request — an end-to-end agent from bug report to proposed fix.</p>
             <div class="proj-tags"><span class="tag">TypeScript</span><span class="tag">MCP</span><span class="tag">RAG</span><span class="tag">ChromaDB</span><span class="tag">Ollama</span></div>
           </a>
-          <a class="proj-row" href="https://github.com/Rishpan/game-ai-lab" target="_blank" rel="noopener">
+          <a class="proj-row" href="https://github.com/Rishpan/game-ai-lab" target="_blank" rel="noopener noreferrer">
             <div class="proj-top"><h3>Game AI Lab</h3><span class="proj-arrow">↗</span></div>
             <p>A playground for experimenting with RL-based agents in a variety of video games — Snake, Flappy Bird, and more.</p>
             <div class="proj-tags"><span class="tag">Python</span><span class="tag">Reinforcement Learning</span></div>
@@ -1206,48 +1338,43 @@
       </div>
 
       <div class="proj-panel" id="proj-panel-done" role="tabpanel" aria-labelledby="proj-tab-done">
-        <div class="proj-list" id="proj-list">
-          <a class="proj-row" href="https://github.com/shrijan-swaminathan/ece461grp11part2" target="_blank" rel="noopener">
+        <div class="proj-list">
+          <a class="proj-row" href="https://github.com/shrijan-swaminathan/ece461grp11part2" target="_blank" rel="noopener noreferrer">
             <div class="proj-top"><h3>Internal Node.js Package Registry</h3><span class="proj-arrow">↗</span></div>
             <p>Internal registry for hosting and distributing Node.js packages within an organization, with automated quality scoring.</p>
             <div class="proj-tags"><span class="tag">TypeScript</span><span class="tag">AWS Lambda</span><span class="tag">DynamoDB</span><span class="tag">S3</span><span class="tag">Octokit</span></div>
           </a>
-          <a class="proj-row" href="https://github.com/Rishpan/cs532-spark-benchmark" target="_blank" rel="noopener">
+          <a class="proj-row" href="https://github.com/Rishpan/cs532-spark-benchmark" target="_blank" rel="noopener noreferrer">
             <div class="proj-top"><h3>PySpark API Benchmark</h3><span class="proj-arrow">↗</span></div>
             <p>Benchmarks RDD, DataFrame, and SQL APIs on 3.3 GB of web server logs — execution time, shuffle volume, and memory on GCP Dataproc.</p>
             <div class="proj-tags"><span class="tag">PySpark</span><span class="tag">Python</span><span class="tag">GCP Dataproc</span><span class="tag">Parquet</span></div>
           </a>
-          <a class="proj-row" href="https://github.com/shrijan-swaminathan/mickeyNPM" target="_blank" rel="noopener">
+          <a class="proj-row" href="https://github.com/shrijan-swaminathan/mickeyNPM" target="_blank" rel="noopener noreferrer">
             <div class="proj-top"><h3>Node.js Metrics Evaluation Tool</h3><span class="proj-arrow">↗</span></div>
             <p>CLI that scores npm and GitHub packages on correctness, license compatibility, bus factor, and maintainer responsiveness — powered by the GitHub API.</p>
             <div class="proj-tags"><span class="tag">TypeScript</span><span class="tag">Octokit</span><span class="tag">Jest</span><span class="tag">GitHub Actions</span></div>
           </a>
-          <a class="proj-row" href="https://github.com/AnishLaddha/markbyte" target="_blank" rel="noopener">
+          <a class="proj-row" href="https://github.com/AnishLaddha/markbyte" target="_blank" rel="noopener noreferrer">
             <div class="proj-top"><h3>MarkByte</h3><span class="proj-arrow">↗</span></div>
             <p>Full-stack blogging platform for Markdown publishing — version rollback, reader analytics, and a built-in editor. React frontend, Go backend.</p>
             <div class="proj-tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Go</span><span class="tag">MongoDB</span></div>
           </a>
-          <a class="proj-row" href="https://github.com/Rishpan/birdsong-cnn" target="_blank" rel="noopener">
+          <a class="proj-row" href="https://github.com/Rishpan/birdsong-cnn" target="_blank" rel="noopener noreferrer">
             <div class="proj-top"><h3>Birdsong CNN</h3><span class="proj-arrow">↗</span></div>
             <p>Fine-tuned ResNet-18 and EfficientNet-B0 on European birdsong, with few-shot transfer to U.S. species — 61.54% at k=10, ~39% over baseline. GradCAM++ interpretability.</p>
             <div class="proj-tags"><span class="tag">PyTorch</span><span class="tag">timm</span><span class="tag">librosa</span><span class="tag">GradCAM++</span></div>
           </a>
-          <a class="proj-row" href="https://github.com/shrijan-swaminathan/Sentify" target="_blank" rel="noopener">
+          <a class="proj-row" href="https://github.com/shrijan-swaminathan/Sentify" target="_blank" rel="noopener noreferrer">
             <div class="proj-top"><h3>Sentify</h3><span class="proj-arrow">↗</span></div>
-            <p>Email analysis with fine-tuned DistilBERT and RoBERTa for tone and intent, plus GPT-powered rewrite suggestions.</p>
-            <div class="proj-tags"><span class="tag">Python</span><span class="tag">RoBERTa</span><span class="tag">Transformers</span><span class="tag">GPT-4o</span></div>
+            <p>Streamlit app for email analysis with fine-tuned DistilBERT and RoBERTa for tone and intent, plus GPT-powered rewrite suggestions.</p>
+            <div class="proj-tags"><span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">RoBERTa</span><span class="tag">Transformers</span><span class="tag">GPT-4o</span></div>
           </a>
-          <a class="proj-row" href="https://github.com/shrijan-swaminathan/SpeechDrivenIDE" target="_blank" rel="noopener">
+          <a class="proj-row" href="https://github.com/shrijan-swaminathan/SpeechDrivenIDE" target="_blank" rel="noopener noreferrer">
             <div class="proj-top"><h3>Speech-Driven Python IDE</h3><span class="proj-arrow">↗</span></div>
             <p>Voice-controlled Python IDE with speech recognition for hands-free coding commands.</p>
             <div class="proj-tags"><span class="tag">Python</span><span class="tag">Speech Recognition</span></div>
           </a>
         </div>
-        <nav class="proj-pager" id="proj-pager" aria-label="Finished project pages">
-          <button type="button" class="proj-pager-btn" id="proj-prev" aria-label="Previous projects">← Prev</button>
-          <span class="proj-pager-info" id="proj-pager-info">1 / 2</span>
-          <button type="button" class="proj-pager-btn" id="proj-next" aria-label="Next finished projects">Next →</button>
-        </nav>
       </div>
     </section>
 
@@ -1299,12 +1426,15 @@
         <div class="edu-chip">
           <h3>University of Massachusetts Amherst</h3>
           <p>M.S., Computer Science</p>
-          <time>Expected May 2027</time>
+          <div class="tags">
+            <span class="tag live">In progress</span>
+          </div>
+          <time datetime="2027-05">Expected May 2027</time>
         </div>
         <div class="edu-chip">
           <h3>Purdue University</h3>
           <p>B.S., Computer Engineering</p>
-          <time>May 2025</time>
+          <time datetime="2025-05">May 2025</time>
         </div>
       </div>
     </section>
@@ -1312,22 +1442,18 @@
     <section id="contact">
       <h2 class="section-title"><span class="section-num">05</span>Contact</h2>
       <div class="contact-list">
-          <div class="contact-item">
-            <a href="mailto:rishab.pangal@gmail.com"><span>Email</span>rishab.pangal@gmail.com</a>
-            <button type="button" class="copy-btn" data-copy="rishab.pangal@gmail.com" data-toast="Email copied" aria-label="Copy email address">Copy</button>
-          </div>
-          <div class="contact-item">
-            <a href="https://linkedin.com/in/rishabpangal" target="_blank" rel="noopener"><span>LinkedIn</span>linkedin.com/in/rishabpangal</a>
-            <button type="button" class="copy-btn" data-copy="https://linkedin.com/in/rishabpangal" data-toast="LinkedIn copied" aria-label="Copy LinkedIn URL">Copy</button>
-          </div>
-          <div class="contact-item">
-            <a href="https://github.com/Rishpan" target="_blank" rel="noopener"><span>GitHub</span>github.com/Rishpan</a>
-            <button type="button" class="copy-btn" data-copy="https://github.com/Rishpan" data-toast="GitHub copied" aria-label="Copy GitHub URL">Copy</button>
-          </div>
-          <div class="contact-item">
-            <a href="tel:5105796876"><span>Phone</span>(510) 579-6876</a>
-            <button type="button" class="copy-btn" data-copy="(510) 579-6876" data-toast="Phone copied" aria-label="Copy phone number">Copy</button>
-          </div>
+        <div class="contact-item">
+          <a href="mailto:rishab.pangal@gmail.com"><span class="contact-label">Email</span><span class="contact-val">rishab.pangal@gmail.com</span></a>
+        </div>
+        <div class="contact-item">
+          <a href="https://www.linkedin.com/in/rishabpangal" target="_blank" rel="noopener noreferrer"><span class="contact-label">LinkedIn</span><span class="contact-val">linkedin.com/in/rishabpangal</span></a>
+        </div>
+        <div class="contact-item">
+          <a href="https://github.com/Rishpan" target="_blank" rel="noopener noreferrer"><span class="contact-label">GitHub</span><span class="contact-val">github.com/Rishpan</span></a>
+        </div>
+        <div class="contact-item">
+          <a href="tel:+15105796876"><span class="contact-label">Phone</span><span class="contact-val">(510) 579-6876</span></a>
+        </div>
       </div>
     </section>
 
@@ -1338,13 +1464,12 @@
     <nav class="footer-links" aria-label="Footer">
       <a href="mailto:rishab.pangal@gmail.com">Email</a>
       <span class="footer-sep" aria-hidden="true">·</span>
-      <a href="https://github.com/Rishpan" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://github.com/Rishpan" target="_blank" rel="noopener noreferrer">GitHub</a>
       <span class="footer-sep" aria-hidden="true">·</span>
-      <a href="https://linkedin.com/in/rishabpangal" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/rishabpangal" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </nav>
   </footer>
 
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <div class="ee-flash" id="ee-flash" aria-hidden="true"></div>
   <div class="ee-particles" id="ee-particles" aria-hidden="true"></div>
   <div class="ee-court" id="ee-court" aria-hidden="true"></div>
@@ -1352,9 +1477,7 @@
 
   <script>
     (function () {
-      // ── Copy contact ──
-      var toast = document.getElementById('toast');
-      var toastTimer;
+      // ── Easter egg FX ──
       var eeFlash = document.getElementById('ee-flash');
       var eeParticles = document.getElementById('ee-particles');
       var eeCourt = document.getElementById('ee-court');
@@ -1403,23 +1526,6 @@
 
       function scheduleFx(fn, delay) {
         eeFxTimers.push(setTimeout(fn, delay));
-      }
-
-      function showToast(msg, team, sub) {
-        toast.classList.remove('toast-niners', 'toast-warriors', 'toast-celebrate', 'show');
-        if (team) toast.classList.add('toast-' + team);
-        if (sub) {
-          toast.innerHTML = '<strong>' + msg + '</strong><span class="toast-sub">' + sub + '</span>';
-        } else {
-          toast.textContent = msg;
-        }
-        requestAnimationFrame(function () {
-          toast.classList.add('show', team ? 'toast-celebrate' : '');
-        });
-        clearTimeout(toastTimer);
-        toastTimer = setTimeout(function () {
-          toast.classList.remove('show', 'toast-niners', 'toast-warriors', 'toast-celebrate');
-        }, 2800);
       }
 
       function spawnParticles(colors, duration) {
@@ -1533,20 +1639,7 @@
         });
       }
 
-      document.querySelectorAll('.copy-btn').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          var text = btn.getAttribute('data-copy');
-          var msg = btn.getAttribute('data-toast') || 'Copied';
-          navigator.clipboard.writeText(text).then(function () {
-            showToast(msg);
-          }).catch(function () {
-            showToast('Could not copy');
-          });
-        });
-      });
-
       // ── Project tabs ──
-      var resetProjPager = function () {};
       (function () {
         var tablist = document.querySelector('.proj-tabs');
         var thumb = document.querySelector('.proj-tabs-thumb');
@@ -1573,11 +1666,15 @@
           tabs.forEach(function (tab) {
             var active = tab.dataset.projTab === name;
             tab.setAttribute('aria-selected', active ? 'true' : 'false');
+            tab.tabIndex = active ? 0 : -1;
           });
           panels.wip.hidden = name !== 'wip';
           panels.done.hidden = name !== 'done';
-          resetProjPager();
           requestAnimationFrame(function () { moveThumb(activeTab()); });
+        }
+
+        function tabList() {
+          return Array.prototype.slice.call(tabs);
         }
 
         tabs.forEach(function (tab) {
@@ -1586,12 +1683,51 @@
           });
         });
 
+        tablist.addEventListener('keydown', function (e) {
+          var list = tabList();
+          var idx = list.indexOf(activeTab());
+          if (idx < 0) return;
+
+          if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+            e.preventDefault();
+            var next = e.key === 'ArrowRight'
+              ? (idx + 1) % list.length
+              : (idx - 1 + list.length) % list.length;
+            selectTab(list[next].dataset.projTab);
+            list[next].focus();
+          } else if (e.key === 'Home') {
+            e.preventDefault();
+            selectTab(list[0].dataset.projTab);
+            list[0].focus();
+          } else if (e.key === 'End') {
+            e.preventDefault();
+            selectTab(list[list.length - 1].dataset.projTab);
+            list[list.length - 1].focus();
+          }
+        });
+
+        function setTabCounts() {
+          var wipCount = panels.wip.querySelectorAll('.proj-row').length;
+          var doneCount = panels.done.querySelectorAll('.proj-row').length;
+          tabs.forEach(function (tab) {
+            var countEl = tab.querySelector('.proj-tab-count');
+            if (!countEl) return;
+            countEl.textContent = '(' + (tab.dataset.projTab === 'wip' ? wipCount : doneCount) + ')';
+          });
+        }
+
+        setTabCounts();
+
         function syncThumb() {
           moveThumb(activeTab());
         }
 
         requestAnimationFrame(syncThumb);
-        window.addEventListener('resize', syncThumb);
+        var resizeTimer;
+        window.addEventListener('resize', function () {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(syncThumb, 120);
+        });
         if (typeof ResizeObserver !== 'undefined') {
           new ResizeObserver(syncThumb).observe(tablist);
         }
@@ -1600,51 +1736,27 @@
         }
       })();
 
-      // ── Project pagination ──
+      // ── Section reveal ──
       (function () {
-        var list = document.getElementById('proj-list');
-        var pager = document.getElementById('proj-pager');
-        if (!list || !pager) return;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        var sections = document.querySelectorAll('main section');
+        if (!sections.length || typeof IntersectionObserver === 'undefined') return;
 
-        var rows = list.querySelectorAll('.proj-row');
-        var perPage = 6;
-        var page = 0;
-        var totalPages = Math.ceil(rows.length / perPage);
-        var prev = document.getElementById('proj-prev');
-        var next = document.getElementById('proj-next');
-        var info = document.getElementById('proj-pager-info');
-
-        function applyPage() {
-          rows.forEach(function (row, i) {
-            row.classList.toggle('is-hidden', i < page * perPage || i >= (page + 1) * perPage);
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
           });
-          if (info) info.textContent = (page + 1) + ' / ' + totalPages;
-          if (prev) prev.disabled = page === 0;
-          if (next) next.disabled = page >= totalPages - 1;
-        }
+        }, { threshold: 0.06, rootMargin: '0px 0px -8% 0px' });
 
-        resetProjPager = function () {
-          page = 0;
-          applyPage();
-        };
-
-        if (totalPages <= 1) {
-          pager.hidden = true;
-          return;
-        }
-
-        if (prev) {
-          prev.addEventListener('click', function () {
-            if (page > 0) { page--; applyPage(); }
-          });
-        }
-        if (next) {
-          next.addEventListener('click', function () {
-            if (page < totalPages - 1) { page++; applyPage(); }
-          });
-        }
-
-        applyPage();
+        sections.forEach(function (section, i) {
+          if (section.id === 'hero') return;
+          section.classList.add('reveal');
+          section.style.transitionDelay = Math.min(i * 0.04, 0.2) + 's';
+          observer.observe(section);
+        });
       })();
 
       // ── Team easter eggs ──
@@ -1675,7 +1787,30 @@
         });
       });
 
-      console.log('%c🌁', 'font-size:13px', '%c bay area things…', 'color:#72727e;font-size:10px');
+      // ── External link labels ──
+      (function () {
+        document.querySelectorAll('.proj-row[target="_blank"]').forEach(function (link) {
+          var title = link.querySelector('h3');
+          if (title) {
+            link.setAttribute('aria-label', title.textContent.trim() + ' (opens in new tab)');
+          }
+        });
+        document.querySelectorAll('a[target="_blank"]:not(.proj-row)').forEach(function (link) {
+          if (link.getAttribute('aria-label')) return;
+          var text = link.textContent.trim().replace(/\s+/g, ' ');
+          if (text) link.setAttribute('aria-label', text + ' (opens in new tab)');
+        });
+      })();
+
+      // ── Skip link focus ──
+      (function () {
+        var skip = document.querySelector('.skip-link');
+        var main = document.getElementById('main');
+        if (!skip || !main) return;
+        skip.addEventListener('click', function () {
+          requestAnimationFrame(function () { main.focus({ preventScroll: true }); });
+        });
+      })();
     })();
   </script>
 
