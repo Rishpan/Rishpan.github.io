@@ -1429,38 +1429,18 @@
           if (next) next.disabled = page >= totalPages - 1;
         }
 
-        function render(direction) {
-          var animate = direction && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-          if (!animate) {
-            applyPage();
-            return;
-          }
-          var out = direction > 0 ? -14 : 14;
-          var enter = direction > 0 ? 14 : -14;
-          list.animate([
-            { opacity: 1, transform: 'translateX(0)' },
-            { opacity: 0, transform: 'translateX(' + out + 'px)' }
-          ], { duration: 180, easing: 'ease', fill: 'forwards' }).finished.then(function () {
-            applyPage();
-            return list.animate([
-              { opacity: 0, transform: 'translateX(' + enter + 'px)' },
-              { opacity: 1, transform: 'translateX(0)' }
-            ], { duration: 220, easing: 'ease' });
-          }).catch(function () { applyPage(); });
-        }
-
         if (prev) {
           prev.addEventListener('click', function () {
-            if (page > 0) { page--; render(-1); }
+            if (page > 0) { page--; applyPage(); }
           });
         }
         if (next) {
           next.addEventListener('click', function () {
-            if (page < totalPages - 1) { page++; render(1); }
+            if (page < totalPages - 1) { page++; applyPage(); }
           });
         }
 
-        render(0);
+        applyPage();
       })();
 
       // ── Team easter eggs ──
