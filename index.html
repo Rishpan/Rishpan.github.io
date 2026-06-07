@@ -26,6 +26,12 @@
       --mono: 'JetBrains Mono', monospace;
       --sidebar: 200px;
       --radius: 12px;
+      --glass-blur: 18px;
+      --glass-saturate: 1.45;
+      --glass-bg: rgba(14, 14, 17, 0.55);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --glass-shine: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      --glass-shadow: 0 10px 40px rgba(0, 0, 0, 0.22);
     }
 
     html { scroll-behavior: smooth; }
@@ -49,6 +55,8 @@
       line-height: 1.6;
       color: var(--text);
       background:
+        radial-gradient(ellipse 55% 45% at 88% 8%, rgba(34, 211, 238, 0.07), transparent),
+        radial-gradient(ellipse 50% 42% at 10% 92%, rgba(139, 92, 246, 0.08), transparent),
         radial-gradient(ellipse 80% 50% at 50% -20%, rgba(139, 92, 246, 0.08), transparent),
         var(--bg);
       min-height: 100vh;
@@ -60,11 +68,13 @@
       top: 0; left: 0; bottom: 0;
       width: var(--sidebar);
       padding: 2rem 1rem 2rem 1.25rem;
-      border-right: 1px solid var(--line);
+      border-right: 1px solid var(--glass-border);
       display: flex;
       flex-direction: column;
-      background: rgba(8, 8, 10, 0.85);
-      backdrop-filter: blur(12px);
+      background: var(--glass-bg);
+      -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+      backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+      box-shadow: var(--glass-shine), var(--glass-shadow);
       z-index: 100;
     }
 
@@ -397,6 +407,69 @@
     }
 
     /* ─── PROJECTS GRID ─── */
+    .proj-tabs {
+      position: relative;
+      display: inline-flex;
+      gap: 0.15rem;
+      margin-bottom: 1.1rem;
+      padding: 0.2rem;
+      background: var(--glass-bg);
+      -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+      backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+      border: 1px solid var(--glass-border);
+      border-radius: 999px;
+      box-shadow: var(--glass-shine);
+      max-width: 100%;
+    }
+
+    .proj-tabs-thumb {
+      position: absolute;
+      top: 0.2rem;
+      left: 0;
+      height: calc(100% - 0.4rem);
+      width: 0;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.07);
+      box-shadow:
+        var(--glass-shine),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+      transform: translateX(0);
+      transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), width 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .proj-tab {
+      position: relative;
+      z-index: 1;
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: var(--muted);
+      background: transparent;
+      border: none;
+      border-radius: 999px;
+      padding: 0.42rem 0.85rem;
+      cursor: pointer;
+      transition: color 0.15s;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+      white-space: nowrap;
+    }
+
+    .proj-tab:hover {
+      color: var(--dim);
+    }
+
+    .proj-tab[aria-selected="true"] {
+      color: var(--text);
+    }
+
+    .proj-panel[hidden] {
+      display: none;
+    }
+
     .proj-list {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -408,22 +481,39 @@
       flex-direction: column;
       gap: 0.6rem;
       padding: 1.2rem 1.3rem;
-      background: var(--panel);
-      border: 1px solid var(--line);
+      background: rgba(15, 15, 18, 0.72);
+      border: 1px solid var(--glass-border);
       border-radius: var(--radius);
+      box-shadow: var(--glass-shine), 0 4px 24px rgba(0, 0, 0, 0.12);
       text-decoration: none;
       color: inherit;
-      transition: border-color 0.15s, background 0.15s;
+      transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
       position: relative;
       height: 100%;
+      overflow: hidden;
+    }
+
+    .proj-row::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.06) 0%, transparent 38%);
     }
 
     .proj-row:hover {
-      border-color: rgba(34, 211, 238, 0.22);
-      background: rgba(255, 255, 255, 0.015);
+      border-color: rgba(34, 211, 238, 0.24);
+      background: rgba(18, 18, 22, 0.82);
+      box-shadow:
+        var(--glass-shine),
+        inset 0 0 0 1px rgba(34, 211, 238, 0.06),
+        0 8px 28px rgba(0, 0, 0, 0.16);
     }
 
     .proj-top {
+      position: relative;
+      z-index: 1;
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
@@ -438,6 +528,8 @@
     }
 
     .proj-row p {
+      position: relative;
+      z-index: 1;
       font-size: 0.8rem;
       color: var(--dim);
       line-height: 1.55;
@@ -446,6 +538,8 @@
     }
 
     .proj-tags {
+      position: relative;
+      z-index: 1;
       display: flex;
       flex-wrap: wrap;
       gap: 0.3rem;
@@ -646,8 +740,11 @@
       font-family: var(--mono);
       font-size: 0.68rem;
       color: var(--text);
-      background: var(--panel);
-      border: 1px solid rgba(34, 211, 238, 0.35);
+      background: var(--glass-bg);
+      -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+      backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-shine), var(--glass-shadow);
       border-radius: 8px;
       padding: 0.6rem 0.9rem;
       opacity: 0;
@@ -871,9 +968,11 @@
       left: 0;
       right: 0;
       z-index: 100;
-      background: rgba(8, 8, 10, 0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--line);
+      background: var(--glass-bg);
+      -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+      backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+      border-bottom: 1px solid var(--glass-border);
+      box-shadow: var(--glass-shine), 0 8px 32px rgba(0, 0, 0, 0.18);
     }
 
     .mobile-top {
@@ -905,6 +1004,8 @@
     .mobile-nav a:hover { color: var(--cyan); }
 
     @media (max-width: 768px) {
+      :root { --glass-blur: 14px; }
+
       .sidebar { display: none; }
       .mobile-header { display: block; }
       main, footer { margin-left: 0; }
@@ -913,6 +1014,18 @@
       section { scroll-margin-top: 6.5rem; }
       .proj-list { grid-template-columns: 1fr; }
       .proj-pager-btn { padding: 0.45rem 0.85rem; }
+      .proj-tabs {
+        display: flex;
+        width: 100%;
+      }
+      .proj-tab {
+        flex: 1;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem 0.65rem;
+      }
       main, footer { width: 100%; }
       .copy-btn { opacity: 1; }
     }
@@ -935,8 +1048,20 @@
       .sidebar-nav a,
       .hero-actions a,
       .proj-row,
+      .proj-tab,
+      .proj-tabs-thumb,
       .ee-trigger {
         transition: none !important;
+      }
+    }
+
+    @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+      .sidebar,
+      .mobile-header,
+      .proj-tabs,
+      .toast {
+        background: var(--panel);
+        box-shadow: none;
       }
     }
   </style>
@@ -1058,53 +1183,72 @@
 
     <section id="projects">
       <h2 class="section-title"><span class="section-num">02</span>Projects</h2>
-      <div class="proj-list" id="proj-list">
-        <a class="proj-row" href="https://github.com/Rishpan/github-pr-agent" target="_blank" rel="noopener">
-          <div class="proj-top"><h3>GitHub PR Agent</h3><span class="proj-arrow">↗</span></div>
-          <p>Reads a GitHub issue, finds relevant code with RAG, and opens a draft pull request — an end-to-end agent from bug report to proposed fix.</p>
-          <div class="proj-tags"><span class="tag">TypeScript</span><span class="tag">MCP</span><span class="tag">RAG</span><span class="tag">ChromaDB</span><span class="tag">Ollama</span></div>
-        </a>
-        <a class="proj-row" href="https://github.com/shrijan-swaminathan/ece461grp11part2" target="_blank" rel="noopener">
-          <div class="proj-top"><h3>Internal Node.js Package Registry</h3><span class="proj-arrow">↗</span></div>
-          <p>Internal registry for hosting and distributing Node.js packages within an organization, with automated quality scoring.</p>
-          <div class="proj-tags"><span class="tag">TypeScript</span><span class="tag">AWS Lambda</span><span class="tag">DynamoDB</span><span class="tag">S3</span><span class="tag">Octokit</span></div>
-        </a>
-        <a class="proj-row" href="https://github.com/Rishpan/cs532-spark-benchmark" target="_blank" rel="noopener">
-          <div class="proj-top"><h3>PySpark API Benchmark</h3><span class="proj-arrow">↗</span></div>
-          <p>Benchmarks RDD, DataFrame, and SQL APIs on 3.3 GB of web server logs — execution time, shuffle volume, and memory on GCP Dataproc.</p>
-          <div class="proj-tags"><span class="tag">PySpark</span><span class="tag">Python</span><span class="tag">GCP Dataproc</span><span class="tag">Parquet</span></div>
-        </a>
-        <a class="proj-row" href="https://github.com/shrijan-swaminathan/mickeyNPM" target="_blank" rel="noopener">
-          <div class="proj-top"><h3>Node.js Metrics Evaluation Tool</h3><span class="proj-arrow">↗</span></div>
-          <p>CLI that scores npm and GitHub packages on correctness, license compatibility, bus factor, and maintainer responsiveness — powered by the GitHub API.</p>
-          <div class="proj-tags"><span class="tag">TypeScript</span><span class="tag">Octokit</span><span class="tag">Jest</span><span class="tag">GitHub Actions</span></div>
-        </a>
-        <a class="proj-row" href="https://github.com/AnishLaddha/markbyte" target="_blank" rel="noopener">
-          <div class="proj-top"><h3>MarkByte</h3><span class="proj-arrow">↗</span></div>
-          <p>Full-stack blogging platform for Markdown publishing — version rollback, reader analytics, and a built-in editor. React frontend, Go backend.</p>
-          <div class="proj-tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Go</span><span class="tag">MongoDB</span></div>
-        </a>
-        <a class="proj-row" href="https://github.com/Rishpan/birdsong-cnn" target="_blank" rel="noopener">
-          <div class="proj-top"><h3>Birdsong CNN</h3><span class="proj-arrow">↗</span></div>
-          <p>Fine-tuned ResNet-18 and EfficientNet-B0 on European birdsong, with few-shot transfer to U.S. species — 61.54% at k=10, ~39% over baseline. GradCAM++ interpretability.</p>
-          <div class="proj-tags"><span class="tag">PyTorch</span><span class="tag">timm</span><span class="tag">librosa</span><span class="tag">GradCAM++</span></div>
-        </a>
-        <a class="proj-row" href="https://github.com/shrijan-swaminathan/Sentify" target="_blank" rel="noopener">
-          <div class="proj-top"><h3>Sentify</h3><span class="proj-arrow">↗</span></div>
-          <p>Email analysis with fine-tuned DistilBERT and RoBERTa for tone and intent, plus GPT-powered rewrite suggestions.</p>
-          <div class="proj-tags"><span class="tag">Python</span><span class="tag">RoBERTa</span><span class="tag">Transformers</span><span class="tag">GPT-4o</span></div>
-        </a>
-        <a class="proj-row" href="https://github.com/shrijan-swaminathan/SpeechDrivenIDE" target="_blank" rel="noopener">
-          <div class="proj-top"><h3>Speech-Driven Python IDE</h3><span class="proj-arrow">↗</span></div>
-          <p>Voice-controlled Python IDE with speech recognition for hands-free coding commands.</p>
-          <div class="proj-tags"><span class="tag">Python</span><span class="tag">Speech Recognition</span></div>
-        </a>
+
+      <div class="proj-tabs" role="tablist" aria-label="Project status">
+        <span class="proj-tabs-thumb" aria-hidden="true"></span>
+        <button type="button" class="proj-tab" role="tab" id="proj-tab-wip" aria-selected="false" aria-controls="proj-panel-wip" data-proj-tab="wip">In progress</button>
+        <button type="button" class="proj-tab" role="tab" id="proj-tab-done" aria-selected="true" aria-controls="proj-panel-done" data-proj-tab="done">Finished</button>
       </div>
-      <nav class="proj-pager" id="proj-pager" aria-label="Project pages">
-        <button type="button" class="proj-pager-btn" id="proj-prev" aria-label="Previous projects">← Prev</button>
-        <span class="proj-pager-info" id="proj-pager-info">1 / 2</span>
-        <button type="button" class="proj-pager-btn" id="proj-next" aria-label="Next projects">Next →</button>
-      </nav>
+
+      <div class="proj-panel" id="proj-panel-wip" role="tabpanel" aria-labelledby="proj-tab-wip" hidden>
+        <div class="proj-list">
+          <a class="proj-row" href="https://github.com/Rishpan/github-pr-agent" target="_blank" rel="noopener">
+            <div class="proj-top"><h3>GitHub PR Agent</h3><span class="proj-arrow">↗</span></div>
+            <p>Reads a GitHub issue, finds relevant code with RAG, and opens a draft pull request — an end-to-end agent from bug report to proposed fix.</p>
+            <div class="proj-tags"><span class="tag">TypeScript</span><span class="tag">MCP</span><span class="tag">RAG</span><span class="tag">ChromaDB</span><span class="tag">Ollama</span></div>
+          </a>
+          <a class="proj-row" href="https://github.com/Rishpan/game-ai-lab" target="_blank" rel="noopener">
+            <div class="proj-top"><h3>Game AI Lab</h3><span class="proj-arrow">↗</span></div>
+            <p>A playground for experimenting with RL-based agents in a variety of video games — Snake, Flappy Bird, and more.</p>
+            <div class="proj-tags"><span class="tag">Python</span><span class="tag">Reinforcement Learning</span></div>
+          </a>
+        </div>
+      </div>
+
+      <div class="proj-panel" id="proj-panel-done" role="tabpanel" aria-labelledby="proj-tab-done">
+        <div class="proj-list" id="proj-list">
+          <a class="proj-row" href="https://github.com/shrijan-swaminathan/ece461grp11part2" target="_blank" rel="noopener">
+            <div class="proj-top"><h3>Internal Node.js Package Registry</h3><span class="proj-arrow">↗</span></div>
+            <p>Internal registry for hosting and distributing Node.js packages within an organization, with automated quality scoring.</p>
+            <div class="proj-tags"><span class="tag">TypeScript</span><span class="tag">AWS Lambda</span><span class="tag">DynamoDB</span><span class="tag">S3</span><span class="tag">Octokit</span></div>
+          </a>
+          <a class="proj-row" href="https://github.com/Rishpan/cs532-spark-benchmark" target="_blank" rel="noopener">
+            <div class="proj-top"><h3>PySpark API Benchmark</h3><span class="proj-arrow">↗</span></div>
+            <p>Benchmarks RDD, DataFrame, and SQL APIs on 3.3 GB of web server logs — execution time, shuffle volume, and memory on GCP Dataproc.</p>
+            <div class="proj-tags"><span class="tag">PySpark</span><span class="tag">Python</span><span class="tag">GCP Dataproc</span><span class="tag">Parquet</span></div>
+          </a>
+          <a class="proj-row" href="https://github.com/shrijan-swaminathan/mickeyNPM" target="_blank" rel="noopener">
+            <div class="proj-top"><h3>Node.js Metrics Evaluation Tool</h3><span class="proj-arrow">↗</span></div>
+            <p>CLI that scores npm and GitHub packages on correctness, license compatibility, bus factor, and maintainer responsiveness — powered by the GitHub API.</p>
+            <div class="proj-tags"><span class="tag">TypeScript</span><span class="tag">Octokit</span><span class="tag">Jest</span><span class="tag">GitHub Actions</span></div>
+          </a>
+          <a class="proj-row" href="https://github.com/AnishLaddha/markbyte" target="_blank" rel="noopener">
+            <div class="proj-top"><h3>MarkByte</h3><span class="proj-arrow">↗</span></div>
+            <p>Full-stack blogging platform for Markdown publishing — version rollback, reader analytics, and a built-in editor. React frontend, Go backend.</p>
+            <div class="proj-tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Go</span><span class="tag">MongoDB</span></div>
+          </a>
+          <a class="proj-row" href="https://github.com/Rishpan/birdsong-cnn" target="_blank" rel="noopener">
+            <div class="proj-top"><h3>Birdsong CNN</h3><span class="proj-arrow">↗</span></div>
+            <p>Fine-tuned ResNet-18 and EfficientNet-B0 on European birdsong, with few-shot transfer to U.S. species — 61.54% at k=10, ~39% over baseline. GradCAM++ interpretability.</p>
+            <div class="proj-tags"><span class="tag">PyTorch</span><span class="tag">timm</span><span class="tag">librosa</span><span class="tag">GradCAM++</span></div>
+          </a>
+          <a class="proj-row" href="https://github.com/shrijan-swaminathan/Sentify" target="_blank" rel="noopener">
+            <div class="proj-top"><h3>Sentify</h3><span class="proj-arrow">↗</span></div>
+            <p>Email analysis with fine-tuned DistilBERT and RoBERTa for tone and intent, plus GPT-powered rewrite suggestions.</p>
+            <div class="proj-tags"><span class="tag">Python</span><span class="tag">RoBERTa</span><span class="tag">Transformers</span><span class="tag">GPT-4o</span></div>
+          </a>
+          <a class="proj-row" href="https://github.com/shrijan-swaminathan/SpeechDrivenIDE" target="_blank" rel="noopener">
+            <div class="proj-top"><h3>Speech-Driven Python IDE</h3><span class="proj-arrow">↗</span></div>
+            <p>Voice-controlled Python IDE with speech recognition for hands-free coding commands.</p>
+            <div class="proj-tags"><span class="tag">Python</span><span class="tag">Speech Recognition</span></div>
+          </a>
+        </div>
+        <nav class="proj-pager" id="proj-pager" aria-label="Finished project pages">
+          <button type="button" class="proj-pager-btn" id="proj-prev" aria-label="Previous projects">← Prev</button>
+          <span class="proj-pager-info" id="proj-pager-info">1 / 2</span>
+          <button type="button" class="proj-pager-btn" id="proj-next" aria-label="Next finished projects">Next →</button>
+        </nav>
+      </div>
     </section>
 
     <section id="skills">
@@ -1401,6 +1545,61 @@
         });
       });
 
+      // ── Project tabs ──
+      var resetProjPager = function () {};
+      (function () {
+        var tablist = document.querySelector('.proj-tabs');
+        var thumb = document.querySelector('.proj-tabs-thumb');
+        var tabs = document.querySelectorAll('.proj-tab');
+        var panels = {
+          wip: document.getElementById('proj-panel-wip'),
+          done: document.getElementById('proj-panel-done')
+        };
+        if (!tablist || !thumb || !tabs.length || !panels.wip || !panels.done) return;
+
+        function activeTab() {
+          return tablist.querySelector('.proj-tab[aria-selected="true"]');
+        }
+
+        function moveThumb(tab) {
+          if (!tab) return;
+          var listRect = tablist.getBoundingClientRect();
+          var tabRect = tab.getBoundingClientRect();
+          thumb.style.width = tabRect.width + 'px';
+          thumb.style.transform = 'translateX(' + (tabRect.left - listRect.left) + 'px)';
+        }
+
+        function selectTab(name) {
+          tabs.forEach(function (tab) {
+            var active = tab.dataset.projTab === name;
+            tab.setAttribute('aria-selected', active ? 'true' : 'false');
+          });
+          panels.wip.hidden = name !== 'wip';
+          panels.done.hidden = name !== 'done';
+          resetProjPager();
+          requestAnimationFrame(function () { moveThumb(activeTab()); });
+        }
+
+        tabs.forEach(function (tab) {
+          tab.addEventListener('click', function () {
+            selectTab(tab.dataset.projTab);
+          });
+        });
+
+        function syncThumb() {
+          moveThumb(activeTab());
+        }
+
+        requestAnimationFrame(syncThumb);
+        window.addEventListener('resize', syncThumb);
+        if (typeof ResizeObserver !== 'undefined') {
+          new ResizeObserver(syncThumb).observe(tablist);
+        }
+        if (document.fonts && document.fonts.ready) {
+          document.fonts.ready.then(syncThumb);
+        }
+      })();
+
       // ── Project pagination ──
       (function () {
         var list = document.getElementById('proj-list');
@@ -1415,11 +1614,6 @@
         var next = document.getElementById('proj-next');
         var info = document.getElementById('proj-pager-info');
 
-        if (totalPages <= 1) {
-          pager.hidden = true;
-          return;
-        }
-
         function applyPage() {
           rows.forEach(function (row, i) {
             row.classList.toggle('is-hidden', i < page * perPage || i >= (page + 1) * perPage);
@@ -1427,6 +1621,16 @@
           if (info) info.textContent = (page + 1) + ' / ' + totalPages;
           if (prev) prev.disabled = page === 0;
           if (next) next.disabled = page >= totalPages - 1;
+        }
+
+        resetProjPager = function () {
+          page = 0;
+          applyPage();
+        };
+
+        if (totalPages <= 1) {
+          pager.hidden = true;
+          return;
         }
 
         if (prev) {
