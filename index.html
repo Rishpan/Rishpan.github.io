@@ -142,7 +142,7 @@
       position: fixed;
       top: 0; left: 0; bottom: 0;
       width: var(--sidebar);
-      padding: 2rem 1rem 2rem 1.25rem;
+      padding: 2rem 1.15rem 1.75rem;
       border-right: 1px solid var(--glass-border);
       display: flex;
       flex-direction: column;
@@ -155,11 +155,11 @@
 
     .sidebar-name {
       display: block;
-      font-size: 0.95rem;
+      font-size: 0.98rem;
       font-weight: 600;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.025em;
       line-height: 1.2;
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.35rem;
       color: var(--text);
       text-decoration: none;
     }
@@ -167,34 +167,30 @@
     .sidebar-name:hover { opacity: 0.85; }
 
     .sidebar-sub {
-      font-family: var(--mono);
-      font-size: 0.6rem;
+      font-size: 0.72rem;
       color: var(--muted);
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.75rem;
+      padding-bottom: 1.5rem;
       line-height: 1.5;
+      border-bottom: 1px solid var(--line);
     }
 
     .sidebar-nav {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 0.1rem;
+      gap: 0.15rem;
       flex: 1;
     }
 
-    .sidebar-nav li:first-child a {
-      padding-left: calc(0.65rem + 1.1rem + 0.55rem);
-    }
-
     .sidebar-nav a {
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-      font-size: 0.8rem;
+      display: block;
+      font-size: 0.84rem;
       font-weight: 400;
+      letter-spacing: -0.01em;
       color: var(--dim);
       text-decoration: none;
-      padding: 0.48rem 0.65rem;
+      padding: 0.5rem 0.7rem;
       border-radius: var(--radius-sm);
       transition: color 0.2s var(--ease), background 0.2s var(--ease);
     }
@@ -204,23 +200,17 @@
       background: rgba(255, 255, 255, 0.05);
     }
 
-    .nav-num {
-      font-family: var(--mono);
-      font-size: 0.56rem;
-      color: var(--muted);
-      width: 1.1rem;
-      flex-shrink: 0;
-    }
-
     .sidebar-links {
       display: flex;
-      gap: 0.75rem;
-      padding: 0.75rem 0.65rem 0;
+      gap: 1rem;
+      padding: 1rem 0.7rem 0;
+      margin-top: auto;
+      border-top: 1px solid var(--line);
     }
 
     .sidebar-links a {
       font-family: var(--mono);
-      font-size: 0.58rem;
+      font-size: 0.68rem;
       color: var(--muted);
       text-decoration: none;
       transition: color 0.15s;
@@ -261,11 +251,9 @@
 
     .sidebar-foot {
       font-family: var(--mono);
-      font-size: 0.58rem;
+      font-size: 0.62rem;
       color: var(--muted);
-      padding: 0.75rem 0.65rem 0;
-      margin-top: 0.75rem;
-      border-top: 1px solid var(--line);
+      padding: 0.65rem 0.7rem 0;
       user-select: none;
     }
 
@@ -314,8 +302,12 @@
       font-size: 0.6rem;
       font-weight: 500;
       letter-spacing: 0.08em;
-      color: var(--muted);
       margin-right: 0.15rem;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
     }
 
     /* ─── HERO ─── */
@@ -345,19 +337,6 @@
       max-width: 36rem;
       line-height: 1.8;
       margin-bottom: 1.35rem;
-    }
-
-    .hero-status {
-      font-family: var(--mono);
-      font-size: 0.62rem;
-      color: var(--muted);
-      letter-spacing: 0.02em;
-      margin-bottom: 2rem;
-    }
-
-    .hero-status .hero-co {
-      color: var(--dim);
-      font-weight: 500;
     }
 
     .hero-actions {
@@ -418,8 +397,7 @@
       }
       .hero-main h1 { animation-delay: 0.04s; }
       .hero-main .hero-desc { animation-delay: 0.1s; }
-      .hero-main .hero-status { animation-delay: 0.16s; }
-      .hero-main .hero-actions { animation-delay: 0.22s; }
+      .hero-main .hero-actions { animation-delay: 0.16s; }
     }
 
     @keyframes rise-in {
@@ -471,9 +449,14 @@
       width: 44px;
       height: 44px;
       border-radius: 11px;
-      background: rgba(255, 255, 255, 0.97);
-      border: 1px solid var(--glass-border);
-      box-shadow: var(--glass-shine), 0 4px 14px rgba(0, 0, 0, 0.14);
+      background: rgba(255, 255, 255, 0.1);
+      -webkit-backdrop-filter: blur(14px) saturate(1.65);
+      backdrop-filter: blur(14px) saturate(1.65);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.32),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.05),
+        0 6px 20px rgba(0, 0, 0, 0.22);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -481,6 +464,7 @@
       position: relative;
       z-index: 1;
       overflow: hidden;
+      isolation: isolate;
     }
 
     .exp-logo-wrap::before {
@@ -489,7 +473,27 @@
       inset: 0;
       border-radius: inherit;
       pointer-events: none;
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.55) 0%, transparent 48%);
+      background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.45) 0%,
+        rgba(255, 255, 255, 0.12) 24%,
+        transparent 52%
+      );
+      z-index: 2;
+    }
+
+    .exp-logo-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      background: radial-gradient(
+        ellipse 70% 50% at 100% 100%,
+        rgba(34, 211, 238, 0.1),
+        transparent 55%
+      );
+      z-index: 2;
     }
 
     .exp-logo {
@@ -502,13 +506,26 @@
     }
 
     .exp-logo-wrap.purdue {
-      background: #0a0a0a;
-      border-color: rgba(255, 255, 255, 0.12);
+      background: rgba(10, 10, 10, 0.72);
+      border-color: rgba(255, 255, 255, 0.14);
       padding: 0;
     }
 
     .exp-logo-wrap.purdue::before {
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.06) 0%, transparent 48%);
+      background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.16) 0%,
+        rgba(255, 255, 255, 0.04) 28%,
+        transparent 52%
+      );
+    }
+
+    .exp-logo-wrap.purdue::after {
+      background: radial-gradient(
+        ellipse 65% 45% at 100% 100%,
+        rgba(139, 92, 246, 0.12),
+        transparent 55%
+      );
     }
 
     .exp-logo-wrap.purdue .exp-logo {
@@ -516,15 +533,49 @@
     }
 
     .exp-logo-wrap.intel {
-      background: #f4f7fb;
+      padding: 0;
     }
 
     .exp-logo-wrap.intel .exp-logo {
-      filter: brightness(0);
+      border-radius: inherit;
     }
 
+    .exp-logo-wrap.amazon,
     .exp-logo-wrap.hpe {
-      padding: 6px;
+      padding: 0;
+      background: rgba(255, 255, 255, 0.14);
+      border-color: rgba(255, 255, 255, 0.28);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 0 16px rgba(255, 255, 255, 0.08),
+        0 8px 22px rgba(0, 0, 0, 0.24);
+    }
+
+    .exp-logo-wrap.amazon::before,
+    .exp-logo-wrap.hpe::before {
+      background: linear-gradient(
+        155deg,
+        rgba(255, 255, 255, 0.62) 0%,
+        rgba(255, 255, 255, 0.2) 22%,
+        transparent 50%
+      );
+    }
+
+    .exp-logo-wrap.amazon::after {
+      background:
+        radial-gradient(ellipse 60% 45% at 15% 8%, rgba(255, 255, 255, 0.42), transparent 50%),
+        radial-gradient(ellipse 50% 40% at 95% 95%, rgba(255, 153, 0, 0.14), transparent 55%);
+    }
+
+    .exp-logo-wrap.hpe::after {
+      background:
+        radial-gradient(ellipse 60% 45% at 15% 8%, rgba(255, 255, 255, 0.42), transparent 50%),
+        radial-gradient(ellipse 50% 40% at 95% 95%, rgba(0, 179, 136, 0.16), transparent 55%);
+    }
+
+    .exp-logo-wrap.amazon .exp-logo,
+    .exp-logo-wrap.hpe .exp-logo {
+      border-radius: inherit;
     }
 
     .exp-node-head {
@@ -552,6 +603,11 @@
       color: var(--muted);
     }
 
+    .exp-now {
+      color: var(--cyan);
+      font-weight: 500;
+    }
+
     .tags {
       display: flex;
       flex-wrap: wrap;
@@ -566,7 +622,6 @@
       border: 1px solid rgba(255, 255, 255, 0.08);
       padding: 0.2rem 0.55rem;
       border-radius: 999px;
-      transition: border-color 0.2s var(--ease), color 0.2s var(--ease);
     }
 
     .tag.live {
@@ -655,16 +710,22 @@
       flex-direction: column;
       gap: 0.65rem;
       padding: 1.25rem 1.35rem;
-      background: var(--surface);
-      border: 1px solid var(--glass-border);
+      background: var(--glass-bg);
+      -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+      backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: var(--radius);
-      box-shadow: var(--glass-shine), 0 4px 24px rgba(0, 0, 0, 0.14);
+      box-shadow:
+        var(--glass-shine),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.04),
+        0 6px 24px rgba(0, 0, 0, 0.18);
       text-decoration: none;
       color: inherit;
-      transition: border-color 0.25s var(--ease), background 0.25s var(--ease);
+      transition: border-color 0.25s var(--ease), background 0.25s var(--ease), box-shadow 0.25s var(--ease);
       position: relative;
       height: 100%;
       overflow: hidden;
+      isolation: isolate;
     }
 
     .proj-row::before {
@@ -673,25 +734,50 @@
       inset: 0;
       border-radius: inherit;
       pointer-events: none;
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.06) 0%, transparent 38%);
+      background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.03) 28%,
+        transparent 52%
+      );
+    }
+
+    .proj-row::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      background: radial-gradient(
+        ellipse 70% 50% at 100% 100%,
+        rgba(34, 211, 238, 0.08),
+        transparent 55%
+      );
+      opacity: 0.85;
+      transition: opacity 0.25s var(--ease);
     }
 
     .proj-row:hover {
-      border-color: rgba(34, 211, 238, 0.28);
-      background: rgba(18, 18, 23, 0.88);
+      border-color: rgba(34, 211, 238, 0.32);
+      background: rgba(16, 16, 20, 0.72);
       box-shadow:
         var(--glass-shine),
-        inset 0 0 0 1px rgba(34, 211, 238, 0.07),
-        0 12px 36px rgba(0, 0, 0, 0.2);
+        inset 0 0 0 1px rgba(34, 211, 238, 0.1),
+        0 0 28px rgba(139, 92, 246, 0.1),
+        0 12px 36px rgba(0, 0, 0, 0.22);
+    }
+
+    .proj-row:hover::after {
+      opacity: 1;
     }
 
     @media (hover: hover) and (pointer: fine) {
       .proj-row {
-        transition: border-color 0.25s var(--ease), background 0.25s var(--ease), transform 0.25s var(--ease);
+        transition: border-color 0.25s var(--ease), background 0.25s var(--ease), box-shadow 0.25s var(--ease), transform 0.25s var(--ease);
       }
 
       .proj-row:hover {
-        transform: translateY(-2px);
+        transform: translateY(-3px);
       }
     }
 
@@ -862,9 +948,42 @@
       color: var(--dim);
       text-decoration: none;
       transition: color 0.2s var(--ease);
+      padding: 0.15rem 0;
+      border-radius: var(--radius-sm);
     }
 
-    .contact-item a:hover { color: var(--cyan); }
+    .contact-item a::after {
+      content: '→';
+      margin-left: auto;
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      color: var(--cyan);
+      opacity: 0;
+      transform: translateX(-8px);
+      transition: opacity 0.2s var(--ease), transform 0.2s var(--ease);
+      flex-shrink: 0;
+    }
+
+    .contact-item a:hover {
+      color: var(--cyan);
+    }
+
+    .contact-item a:hover::after {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .contact-val {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      transition: transform 0.2s var(--ease);
+    }
+
+    .contact-item a:hover .contact-val {
+      transform: translateX(3px);
+    }
 
     .contact-label {
       font-family: var(--mono);
@@ -875,13 +994,6 @@
       color: var(--muted);
       width: 3.5rem;
       flex-shrink: 0;
-    }
-
-    .contact-val {
-      min-width: 0;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
     }
 
     .ee-flash {
@@ -1106,6 +1218,12 @@
         backdrop-filter: none;
       }
 
+      .proj-row {
+        background: var(--surface);
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+      }
+
       .sidebar { display: none; }
       .mobile-header { display: block; }
       main, footer { margin-left: 0; }
@@ -1188,9 +1306,15 @@
     @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
       .sidebar,
       .mobile-header,
-      .proj-tabs {
+      .proj-tabs,
+      .exp-logo-wrap {
         background: var(--panel);
         box-shadow: none;
+      }
+
+      .proj-row {
+        background: var(--surface);
+        box-shadow: var(--glass-shine), 0 4px 24px rgba(0, 0, 0, 0.14);
       }
     }
   </style>
@@ -1215,12 +1339,11 @@
     <a class="sidebar-name" href="#hero">Rishab Pangal</a>
     <div class="sidebar-sub">M.S. CS · UMass '27</div>
     <ul class="sidebar-nav" aria-label="Sections">
-      <li><a href="#hero">Home</a></li>
-      <li><a href="#experience"><span class="nav-num">01</span>Work</a></li>
-      <li><a href="#projects"><span class="nav-num">02</span>Projects</a></li>
-      <li><a href="#skills"><span class="nav-num">03</span>Skills</a></li>
-      <li><a href="#education"><span class="nav-num">04</span>Education</a></li>
-      <li><a href="#contact"><span class="nav-num">05</span>Contact</a></li>
+      <li><a href="#experience">Work</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="sidebar-links">
       <a href="https://github.com/Rishpan" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -1242,7 +1365,6 @@
       <div class="hero-main">
         <h1>Rishab Pangal</h1>
         <p class="hero-desc">Software engineer · Python, Go, TypeScript, and AWS across distributed systems, developer tooling, and ML.</p>
-        <p class="hero-status"><span class="hero-co">Amazon eero</span> · Los Gatos · Summer '26</p>
         <div class="hero-actions">
           <a class="primary" href="#contact">Get in touch</a>
           <a href="https://github.com/Rishpan" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
@@ -1260,10 +1382,9 @@
           <div class="exp-body">
             <div class="exp-node-head">
               <h3>Software Engineer Intern <span>@ Amazon eero</span></h3>
-              <span class="exp-when">Jun – Aug 2026 · Los Gatos</span>
+              <span class="exp-when"><span class="exp-now">Current</span> · Jun – Aug 2026 · Los Gatos</span>
             </div>
             <div class="tags">
-              <span class="tag live">Current</span>
               <span class="tag">Python</span><span class="tag">AWS</span><span class="tag">Bedrock</span><span class="tag">S3</span><span class="tag">TypeScript</span>
             </div>
           </div>
@@ -1284,7 +1405,7 @@
         </div>
         <div class="exp-node">
           <div class="exp-logo-wrap intel" aria-hidden="true">
-            <img class="exp-logo" src="assets/logos/intel.svg" alt="" width="44" height="44" loading="lazy" decoding="async" />
+            <img class="exp-logo" src="assets/logos/intel.png" alt="" width="44" height="44" loading="lazy" decoding="async" />
           </div>
           <div class="exp-body">
             <div class="exp-node-head">
@@ -1306,7 +1427,7 @@
               <span class="exp-when">May – Aug 2023 · San Jose</span>
             </div>
             <div class="tags">
-              <span class="tag">Python</span><span class="tag">AWS S3</span><span class="tag">Kubernetes</span><span class="tag">pytest</span><span class="tag">MinIO</span>
+              <span class="tag">Python</span><span class="tag">S3</span><span class="tag">Kubernetes</span><span class="tag">pytest</span><span class="tag">MinIO</span>
             </div>
           </div>
         </div>
@@ -1390,7 +1511,7 @@
         <div class="skill-group">
           <h3>Web &amp; Frameworks</h3>
           <div class="tags">
-            <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Angular</span>
+            <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Angular</span><span class="tag">Streamlit</span>
           </div>
         </div>
         <div class="skill-group">
@@ -1426,9 +1547,6 @@
         <div class="edu-chip">
           <h3>University of Massachusetts Amherst</h3>
           <p>M.S., Computer Science</p>
-          <div class="tags">
-            <span class="tag live">In progress</span>
-          </div>
           <time datetime="2027-05">Expected May 2027</time>
         </div>
         <div class="edu-chip">
