@@ -454,6 +454,13 @@
       background: rgba(139, 92, 246, 0.07);
     }
 
+    .hero-actions .btn-ico {
+      flex: none;
+      width: 15px;
+      height: 15px;
+      opacity: 0.9;
+    }
+
     @media (hover: hover) and (pointer: fine) {
       .hero-actions a {
         transition: color 0.2s var(--ease), border-color 0.2s var(--ease), background 0.2s var(--ease), transform 0.2s var(--ease);
@@ -902,24 +909,30 @@
       transform: scale(1.05);
     }
 
-    .exp-logo-wrap.intel {
-      padding: 0;
-    }
-
     .exp-logo-wrap.intel .exp-logo {
       border-radius: inherit;
     }
 
     .exp-logo-wrap.amazon,
-    .exp-logo-wrap.hpe {
+    .exp-logo-wrap.hpe,
+    .exp-logo-wrap.intel {
       padding: 0;
       background: rgba(255, 255, 255, 0.14);
       border-color: rgba(255, 255, 255, 0.28);
     }
 
     .exp-logo-wrap.amazon::before,
-    .exp-logo-wrap.hpe::before {
-      background: linear-gradient(155deg, rgba(255, 255, 255, 0.62) 0%, rgba(255, 255, 255, 0.2) 22%, transparent 50%);
+    .exp-logo-wrap.hpe::before,
+    .exp-logo-wrap.intel::before {
+      background:
+        linear-gradient(155deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.25) 16%, rgba(255, 255, 255, 0) 34%),
+        linear-gradient(155deg, rgba(0, 0, 0, 0) 52%, rgba(0, 0, 0, 0.06) 82%, rgba(0, 0, 0, 0.12) 100%);
+    }
+
+    .exp-logo-wrap.intel::after {
+      background:
+        radial-gradient(ellipse 60% 45% at 15% 8%, rgba(255, 255, 255, 0.42), transparent 50%),
+        radial-gradient(ellipse 50% 40% at 95% 95%, rgba(0, 104, 181, 0.16), transparent 55%);
     }
 
     .exp-logo-wrap.amazon::after {
@@ -937,6 +950,10 @@
     .exp-logo-wrap.amazon .exp-logo,
     .exp-logo-wrap.hpe .exp-logo {
       border-radius: inherit;
+    }
+
+    .exp-logo-wrap.amazon .exp-logo {
+      transform: scale(1.1);
     }
 
     .exp-node-head {
@@ -1495,6 +1512,7 @@
       main { padding: calc(var(--mobile-header-h, 7rem) + 1.25rem) 1.25rem 3rem; max-width: none; }
       footer { padding: 1.75rem 1.25rem; }
       section { scroll-margin-top: calc(var(--mobile-header-h, 7rem) + 0.75rem); }
+      .hero-actions .btn-ico { display: none; }
 
       .proj-list, .skills-wrap, .edu-inline, .contact-list { grid-template-columns: 1fr; }
 
@@ -1676,9 +1694,15 @@
         </a>
         <div class="hero-actions">
           <a class="primary" href="#contact">Get in touch</a>
-          <a href="https://github.com/Rishpan" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-          <a href="https://www.linkedin.com/in/rishabpangal" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-          <a href="mailto:rishab.pangal@gmail.com">Email</a>
+          <a href="https://github.com/Rishpan" target="_blank" rel="noopener noreferrer">
+            <svg class="btn-ico" viewBox="-1 -1 18 18" width="15" height="15" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub ↗</a>
+          <a href="https://www.linkedin.com/in/rishabpangal" target="_blank" rel="noopener noreferrer">
+            <svg class="btn-ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true" focusable="false"><path fill="currentColor" d="M13.63 13.63h-2.37V9.9c0-.89-.02-2.03-1.24-2.03-1.24 0-1.43.97-1.43 1.97v3.79H6.22V6h2.28v1.04h.03c.32-.6 1.1-1.24 2.26-1.24 2.42 0 2.86 1.59 2.86 3.66v4.17zM3.56 4.96a1.38 1.38 0 1 1 0-2.76 1.38 1.38 0 0 1 0 2.76zM4.75 13.63H2.36V6h2.39v7.63zM14.82 0H1.18C.53 0 0 .52 0 1.16v13.68C0 15.48.53 16 1.18 16h13.64c.65 0 1.18-.52 1.18-1.16V1.16C16 .52 15.47 0 14.82 0z"/></svg>
+            LinkedIn ↗</a>
+          <a href="mailto:rishab.pangal@gmail.com">
+            <svg class="btn-ico" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true" focusable="false"><path fill="currentColor" d="M2 3h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm6 5L2.5 4.6V12h11V4.6L8 8zM2.6 4 8 6.9 13.4 4H2.6z"/></svg>
+            Email</a>
         </div>
       </div>
     </section>
