@@ -1492,9 +1492,9 @@
 
       .sidebar { display: none; }
       main, footer { margin-left: 0; width: 100%; }
-      main { padding: 6.75rem 1.25rem 3rem; max-width: none; }
+      main { padding: calc(var(--mobile-header-h, 7rem) + 1.25rem) 1.25rem 3rem; max-width: none; }
       footer { padding: 1.75rem 1.25rem; }
-      section { scroll-margin-top: 6.5rem; }
+      section { scroll-margin-top: calc(var(--mobile-header-h, 7rem) + 0.75rem); }
 
       .proj-list, .skills-wrap, .edu-inline, .contact-list { grid-template-columns: 1fr; }
 
@@ -2374,6 +2374,27 @@
             });
           });
         });
+      })();
+
+      // Keep main offset in sync with the fixed mobile header's real height
+      (function () {
+        var header = document.querySelector('.mobile-header');
+        if (!header) return;
+        var root = document.documentElement;
+        function sync() {
+          if (getComputedStyle(header).display === 'none') {
+            root.style.removeProperty('--mobile-header-h');
+          } else {
+            root.style.setProperty('--mobile-header-h', header.offsetHeight + 'px');
+          }
+        }
+        sync();
+        window.addEventListener('resize', sync);
+        window.addEventListener('orientationchange', sync);
+        window.addEventListener('load', sync);
+        if (document.fonts && document.fonts.ready) {
+          document.fonts.ready.then(sync);
+        }
       })();
     })();
   </script>
